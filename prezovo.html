@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prezovo — Digital Presence for Local Businesses</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#f8fafc;color:#1a2332;overflow-x:hidden}
+:root{--blue:#1a56db;--blue-dark:#1040b0;--blue-light:#e8f0fe;--gray:#64748b;--border:#e2e8f0}
+nav{background:#fff;border-bottom:1px solid var(--border);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+.logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#1a2332;letter-spacing:-0.5px}
+.logo span{color:var(--blue)}
+.nav-right{display:flex;align-items:center;gap:1.5rem}
+.lang-switcher{display:flex;gap:4px;background:#f1f5f9;border-radius:8px;padding:4px}
+.lang-btn{border:none;background:transparent;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:500;cursor:pointer;color:var(--gray);transition:all 0.2s;font-family:'DM Sans',sans-serif}
+.lang-btn.active{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,0.1)}
+.nav-cta{background:var(--blue);color:#fff;border:none;padding:8px 20px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.nav-cta:hover{background:var(--blue-dark)}
+hero{display:block;background:#fff;padding:80px 2rem 80px;text-align:center;border-bottom:1px solid var(--border)}
+.hero-tag{display:inline-block;background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;margin-bottom:1.5rem;letter-spacing:0.5px}
+h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:600;line-height:1.15;color:#1a2332;max-width:680px;margin:0 auto 1.5rem}
+h1 span{color:var(--blue)}
+.hero-sub{font-size:17px;color:var(--gray);max-width:520px;margin:0 auto 2.5rem;line-height:1.7;font-weight:300}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--blue);color:#fff;border:none;padding:14px 28px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s}
+.btn-primary:hover{background:var(--blue-dark)}
+.btn-secondary{background:transparent;color:var(--blue);border:1.5px solid var(--blue);padding:14px 28px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.btn-secondary:hover{background:var(--blue-light)}
+.hero-stats{display:flex;justify-content:center;gap:3rem;margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border)}
+.stat-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:600;color:#1a2332}
+.stat-label{font-size:13px;color:var(--gray);margin-top:4px}
+section{padding:80px 2rem}
+.section-inner{max-width:860px;margin:0 auto}
+.section-tag{font-size:12px;font-weight:500;color:var(--blue);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+h2{font-family:'Playfair Display',serif;font-size:34px;font-weight:600;color:#1a2332;margin-bottom:1rem}
+.section-sub{font-size:16px;color:var(--gray);max-width:520px;line-height:1.7;margin-bottom:3rem;font-weight:300}
+.how-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.step-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative}
+.step-num{font-family:'Playfair Display',serif;font-size:36px;font-weight:600;color:var(--blue-light);line-height:1;margin-bottom:12px}
+.step-title{font-size:15px;font-weight:500;color:#1a2332;margin-bottom:8px}
+.step-desc{font-size:13px;color:var(--gray);line-height:1.6}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.service-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:border-color 0.2s}
+.service-card:hover{border-color:var(--blue)}
+.service-icon{width:40px;height:40px;background:var(--blue-light);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+.service-icon svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:2}
+.service-title{font-size:16px;font-weight:500;color:#1a2332;margin-bottom:8px}
+.service-desc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:1rem}
+.service-price{font-size:13px;font-weight:500;color:var(--blue)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+.why-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem}
+.why-icon{font-size:24px;margin-bottom:12px}
+.why-title{font-size:15px;font-weight:500;color:#1a2332;margin-bottom:6px}
+.why-desc{font-size:13px;color:var(--gray);line-height:1.6}
+.markets{display:flex;gap:12px;flex-wrap:wrap;margin-top:2rem}
+.market-pill{background:#fff;border:1px solid var(--border);border-radius:20px;padding:8px 18px;font-size:14px;color:#1a2332;display:flex;align-items:center;gap:6px}
+.market-flag{font-size:18px}
+.cta-section{background:var(--blue);padding:80px 2rem;text-align:center}
+.cta-section h2{color:#fff;font-family:'Playfair Display',serif;font-size:36px;margin-bottom:1rem}
+.cta-section p{color:rgba(255,255,255,0.8);font-size:16px;margin-bottom:2rem;font-weight:300}
+.btn-white{background:#fff;color:var(--blue);border:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif}
+footer{background:#1a2332;padding:2rem;text-align:center}
+footer p{color:rgba(255,255,255,0.4);font-size:13px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Prez<span>ovo</span></div>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+    </div>
+    <button class="nav-cta" data-i="nav_cta">Get a free audit</button>
+  </div>
+</nav>
+
+<hero>
+  <div class="hero-tag" data-i="hero_tag">Digital Presence for Local Businesses</div>
+  <h1 data-i="hero_h1">Your business deserves to be <span>found online</span></h1>
+  <p class="hero-sub" data-i="hero_sub">We help traditional businesses in Dubai, the US and Europe build a professional digital presence — website, Google Maps, social media — and attract more customers.</p>
+  <div class="hero-btns">
+    <button class="btn-primary" data-i="btn_audit">Get a free audit</button>
+    <button class="btn-secondary" data-i="btn_services">See our services</button>
+  </div>
+  <div class="hero-stats">
+    <div><div class="stat-num">+200%</div><div class="stat-label" data-i="stat1">Average visibility increase</div></div>
+    <div><div class="stat-num">2 weeks</div><div class="stat-label" data-i="stat2">Average delivery time</div></div>
+    <div><div class="stat-num">100%</div><div class="stat-label" data-i="stat3">Remote & international</div></div>
+  </div>
+</hero>
+
+<section style="background:#f8fafc">
+  <div class="section-inner">
+    <div class="section-tag" data-i="how_tag">How it works</div>
+    <h2 data-i="how_h2">Simple, fast, and effective</h2>
+    <p class="section-sub" data-i="how_sub">We analyze your current situation and deliver a complete digital upgrade in 2 weeks.</p>
+    <div class="how-steps">
+      <div class="step-card"><div class="step-num">01</div><div class="step-title" data-i="s1_title">Free audit</div><div class="step-desc" data-i="s1_desc">We analyze your website, Google Maps profile and social media and show you exactly what's missing.</div></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-title" data-i="s2_title">Custom proposal</div><div class="step-desc" data-i="s2_desc">We send you a tailored plan with the services you need and a clear, fixed price. No surprises.</div></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-title" data-i="s3_title">We get to work</div><div class="step-desc" data-i="s3_desc">Our team handles everything remotely. You just review and approve. Ready in under 2 weeks.</div></div>
+      <div class="step-card"><div class="step-num">04</div><div class="step-title" data-i="s4_title">More customers</div><div class="step-desc" data-i="s4_desc">Your business appears where customers look. Google, Maps, Instagram. Ready to grow.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff">
+  <div class="section-inner">
+    <div class="section-tag" data-i="serv_tag">Services</div>
+    <h2 data-i="serv_h2">Everything you need to get found</h2>
+    <p class="section-sub" data-i="serv_sub">Choose one service or combine them all. Fixed prices, no hidden fees.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 21h10M12 17v4"/></svg></div>
+        <div class="service-title" data-i="sv1_t">Professional Website</div>
+        <div class="service-desc" data-i="sv1_d">Modern, fast and mobile-ready website designed to convert visitors into customers.</div>
+        <div class="service-price">From €800</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <div class="service-title" data-i="sv2_t">Google Maps Optimization</div>
+        <div class="service-desc" data-i="sv2_d">Get your business to appear at the top of local searches. More visibility, more walk-ins.</div>
+        <div class="service-price">From €300</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="#1a56db"/></svg></div>
+        <div class="service-title" data-i="sv3_t">Social Media Setup</div>
+        <div class="service-desc" data-i="sv3_d">Professional Instagram and TikTok profiles with consistent branding and content strategy.</div>
+        <div class="service-price">From €400</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="service-title" data-i="sv4_t">Full Digital Package</div>
+        <div class="service-desc" data-i="sv4_d">Website + Google Maps + Social Media. Everything your business needs in one complete package.</div>
+        <div class="service-price" data-i="sv4_p">From €1,400 — Best value</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f8fafc">
+  <div class="section-inner">
+    <div class="section-tag" data-i="why_tag">Why Prezovo</div>
+    <h2 data-i="why_h2">We understand your business</h2>
+    <p class="section-sub" data-i="why_sub">We specialize in traditional businesses that haven't yet made the digital leap.</p>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🎯</div><div class="why-title" data-i="w1_t">Specialized in local businesses</div><div class="why-desc" data-i="w1_d">Restaurants, shops, clinics, hotels. We know what works for your type of business.</div></div>
+      <div class="why-card"><div class="why-icon">⚡</div><div class="why-title" data-i="w2_t">Fast delivery</div><div class="why-desc" data-i="w2_d">Ready in under 2 weeks. No long projects, no delays. We respect your time.</div></div>
+      <div class="why-card"><div class="why-icon">💼</div><div class="why-title" data-i="w3_t">Business expertise</div><div class="why-desc" data-i="w3_d">Backed by economics and international business experience across Europe and the US.</div></div>
+      <div class="why-card"><div class="why-icon">🌍</div><div class="why-title" data-i="w4_t">100% remote</div><div class="why-desc" data-i="w4_d">We work with businesses in Dubai, Miami, London and more. Wherever you are.</div></div>
+    </div>
+    <div>
+      <p style="font-size:14px;color:var(--gray);margin-top:2.5rem;margin-bottom:12px;font-weight:500" data-i="markets_label">We work with businesses in:</p>
+      <div class="markets">
+        <div class="market-pill"><span class="market-flag">🇦🇪</span> Dubai & UAE</div>
+        <div class="market-pill"><span class="market-flag">🇺🇸</span> United States</div>
+        <div class="market-pill"><span class="market-flag">🇬🇧</span> United Kingdom</div>
+        <div class="market-pill"><span class="market-flag">🇪🇸</span> Spain</div>
+        <div class="market-pill"><span class="market-flag">🇲🇹</span> Malta</div>
+        <div class="market-pill"><span class="market-flag">🇪🇺</span> Europe</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section">
+  <h2 data-i="cta_h2">Ready to get found online?</h2>
+  <p data-i="cta_sub">We'll audit your digital presence for free — no strings attached.</p>
+  <button class="btn-white" data-i="cta_btn">Request your free audit</button>
+</div>
+
+<footer>
+  <p>© 2026 Prezovo · Digital Presence for Local Businesses · hello@prezovo.com</p>
+</footer>
+
+<script>
+const t={
+  en:{nav_cta:"Get a free audit",hero_tag:"Digital Presence for Local Businesses",hero_h1:'Your business deserves to be <span style="color:var(--blue)">found online</span>',hero_sub:"We help traditional businesses in Dubai, the US and Europe build a professional digital presence — website, Google Maps, social media — and attract more customers.",btn_audit:"Get a free audit",btn_services:"See our services",stat1:"Average visibility increase",stat2:"Average delivery time",stat3:"Remote & international",how_tag:"How it works",how_h2:"Simple, fast, and effective",how_sub:"We analyze your current situation and deliver a complete digital upgrade in 2 weeks.",s1_title:"Free audit",s1_desc:"We analyze your website, Google Maps profile and social media and show you exactly what's missing.",s2_title:"Custom proposal",s2_desc:"We send you a tailored plan with the services you need and a clear, fixed price. No surprises.",s3_title:"We get to work",s3_desc:"Our team handles everything remotely. You just review and approve. Ready in under 2 weeks.",s4_title:"More customers",s4_desc:"Your business appears where customers look. Google, Maps, Instagram. Ready to grow.",serv_tag:"Services",serv_h2:"Everything you need to get found",serv_sub:"Choose one service or combine them all. Fixed prices, no hidden fees.",sv1_t:"Professional Website",sv1_d:"Modern, fast and mobile-ready website designed to convert visitors into customers.",sv2_t:"Google Maps Optimization",sv2_d:"Get your business to appear at the top of local searches. More visibility, more walk-ins.",sv3_t:"Social Media Setup",sv3_d:"Professional Instagram and TikTok profiles with consistent branding and content strategy.",sv4_t:"Full Digital Package",sv4_d:"Website + Google Maps + Social Media. Everything your business needs in one complete package.",sv4_p:"From €1,400 — Best value",why_tag:"Why Prezovo",why_h2:"We understand your business",why_sub:"We specialize in traditional businesses that haven't yet made the digital leap.",w1_t:"Specialized in local businesses",w1_d:"Restaurants, shops, clinics, hotels. We know what works for your type of business.",w2_t:"Fast delivery",w2_d:"Ready in under 2 weeks. No long projects, no delays. We respect your time.",w3_t:"Business expertise",w3_d:"Backed by economics and international business experience across Europe and the US.",w4_t:"100% remote",w4_d:"We work with businesses in Dubai, Miami, London and more. Wherever you are.",markets_label:"We work with businesses in:",cta_h2:"Ready to get found online?",cta_sub:"We'll audit your digital presence for free — no strings attached.",cta_btn:"Request your free audit"},
+  es:{nav_cta:"Auditoría gratuita",hero_tag:"Presencia digital para negocios locales",hero_h1:'Tu negocio merece ser <span style="color:var(--blue)">encontrado online</span>',hero_sub:"Ayudamos a negocios tradicionales en Dubai, EEUU y Europa a construir una presencia digital profesional — web, Google Maps, redes sociales — y atraer más clientes.",btn_audit:"Quiero una auditoría gratis",btn_services:"Ver servicios",stat1:"Aumento medio de visibilidad",stat2:"Tiempo medio de entrega",stat3:"100% remoto e internacional",how_tag:"Cómo funciona",how_h2:"Simple, rápido y efectivo",how_sub:"Analizamos tu situación actual y entregamos una mejora digital completa en 2 semanas.",s1_title:"Auditoría gratuita",s1_desc:"Analizamos tu web, perfil de Google Maps y redes sociales y te mostramos exactamente qué falta.",s2_title:"Propuesta personalizada",s2_desc:"Te enviamos un plan adaptado con los servicios que necesitas y un precio fijo y claro. Sin sorpresas.",s3_title:"Nos ponemos a trabajar",s3_desc:"Nuestro equipo lo gestiona todo de forma remota. Solo tienes que revisar y aprobar. Listo en menos de 2 semanas.",s4_title:"Más clientes",s4_desc:"Tu negocio aparece donde los clientes buscan. Google, Maps, Instagram. Listo para crecer.",serv_tag:"Servicios",serv_h2:"Todo lo que necesitas para ser encontrado",serv_sub:"Elige un servicio o combínalos todos. Precios fijos, sin costes ocultos.",sv1_t:"Web profesional",sv1_d:"Web moderna, rápida y adaptada a móvil diseñada para convertir visitas en clientes.",sv2_t:"Optimización Google Maps",sv2_d:"Haz que tu negocio aparezca en los primeros resultados de búsqueda local.",sv3_t:"Redes sociales",sv3_d:"Perfiles profesionales en Instagram y TikTok con imagen de marca consistente.",sv4_t:"Pack digital completo",sv4_d:"Web + Google Maps + Redes sociales. Todo lo que tu negocio necesita en un solo paquete.",sv4_p:"Desde 1.400€ — Mejor valor",why_tag:"Por qué Prezovo",why_h2:"Entendemos tu negocio",why_sub:"Nos especializamos en negocios tradicionales que aún no han dado el salto digital.",w1_t:"Especializados en negocios locales",w1_d:"Restaurantes, tiendas, clínicas, hoteles. Sabemos qué funciona para tu tipo de negocio.",w2_t:"Entrega rápida",w2_d:"Listo en menos de 2 semanas. Sin proyectos largos ni retrasos.",w3_t:"Experiencia empresarial",w3_d:"Respaldado por formación en economía y experiencia empresarial internacional.",w4_t:"100% remoto",w4_d:"Trabajamos con negocios en Dubai, Miami, Londres y más.",markets_label:"Trabajamos con negocios en:",cta_h2:"¿Listo para ser encontrado online?",cta_sub:"Auditamos tu presencia digital de forma gratuita y sin compromiso.",cta_btn:"Solicitar auditoría gratuita"},
+  ar:{nav_cta:"احصل على تدقيق مجاني",hero_tag:"الحضور الرقمي للشركات المحلية",hero_h1:'عملك يستحق أن يُعثر عليه <span style="color:var(--blue)">على الإنترنت</span>',hero_sub:"نساعد الشركات التقليدية في دبي والولايات المتحدة وأوروبا على بناء حضور رقمي احترافي واستقطاب المزيد من العملاء.",btn_audit:"احصل على تدقيق مجاني",btn_services:"اطلع على خدماتنا",stat1:"متوسط زيادة الظهور",stat2:"متوسط وقت التسليم",stat3:"عن بُعد وعلى المستوى الدولي",how_tag:"كيف يعمل",how_h2:"بسيط وسريع وفعّال",how_sub:"نحلل وضعك الحالي ونقدم ترقية رقمية شاملة في أسبوعين.",s1_title:"تدقيق مجاني",s1_desc:"نحلل موقعك وملفك في خرائط جوجل ووسائل التواصل ونوضح ما يحتاج تحسيناً.",s2_title:"عرض مخصص",s2_desc:"نرسل خطة مصممة خصيصاً مع سعر ثابت وواضح. بدون مفاجآت.",s3_title:"نبدأ العمل",s3_desc:"يتولى فريقنا كل شيء عن بُعد. أنت فقط تراجع وتوافق.",s4_title:"المزيد من العملاء",s4_desc:"يظهر عملك حيث يبحث العملاء. جوجل، خرائط، إنستغرام.",serv_tag:"الخدمات",serv_h2:"كل ما تحتاجه لتُعثر عليك",serv_sub:"اختر خدمة واحدة أو ادمجها جميعاً. أسعار ثابتة بدون رسوم خفية.",sv1_t:"موقع إلكتروني احترافي",sv1_d:"موقع حديث وسريع ومتوافق مع الجوال مصمم لتحويل الزوار إلى عملاء.",sv2_t:"تحسين خرائط جوجل",sv2_d:"اجعل عملك يظهر في أعلى نتائج البحث المحلي.",sv3_t:"إعداد وسائل التواصل",sv3_d:"ملفات احترافية على إنستغرام وتيك توك مع هوية بصرية متناسقة.",sv4_t:"الحزمة الرقمية الكاملة",sv4_d:"موقع + خرائط جوجل + وسائل التواصل. كل ما يحتاجه عملك في حزمة واحدة.",sv4_p:"من €1,400 — أفضل قيمة",why_tag:"لماذا Prezovo",why_h2:"نفهم عملك",why_sub:"نتخصص في الشركات التقليدية التي لم تدخل بعد إلى العالم الرقمي.",w1_t:"متخصصون في الشركات المحلية",w1_d:"المطاعم والمتاجر والعيادات والفنادق. نعرف ما يصلح لنوع عملك.",w2_t:"تسليم سريع",w2_d:"جاهز في أقل من أسبوعين. بدون تأخير. نحترم وقتك.",w3_t:"خبرة تجارية",w3_d:"مدعوم بخلفية اقتصادية وخبرة تجارية دولية في أوروبا والولايات المتحدة.",w4_t:"100% عن بُعد",w4_d:"نعمل مع شركات في دبي وميامي ولندن والمزيد.",markets_label:"نعمل مع شركات في:",cta_h2:"هل أنت مستعد لتُعثر عليك على الإنترنت؟",cta_sub:"سنقدم تدقيقاً مجانياً لحضورك الرقمي بدون أي التزام.",cta_btn:"طلب تدقيق مجاني"}
+};
+
+function setLang(lang){
+  document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  document.body.style.direction=lang==='ar'?'rtl':'ltr';
+  const data=t[lang];
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const key=el.getAttribute('data-i');
+    if(data[key]!==undefined) el.innerHTML=data[key];
+  });
+}
+</script>
+</body>
+</html>
